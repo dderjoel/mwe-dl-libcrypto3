@@ -1,14 +1,14 @@
 LIBRARY_PATH=/usr/local/lib64
 LIBRARY_NAME=libcrypto.so.3
 all: ok fail
-
-a.out: main.c $(LD_LIBRARY_PATH)/$(LIBRARY_NAME)
-	gcc main.c -ldl -L $(LD_LIBRARY_PATH) -l:$(LIBRARY_NAME)
+ 
+a.out: main.c $(LIBRARY_PATH)/$(LIBRARY_NAME)
+	gcc main.c -ldl -L $(LIBRARY_PATH) -l:$(LIBRARY_NAME)
+	LD_LIBRARY_PATH=$(LIBRARY_PATH) ldd ./${@}
 
 ok: a.out
-	@echo sould be ok
 	LD_LIBRARY_PATH=$(LIBRARY_PATH) ./${^}
-	@echo ok
+	@echo if you read this, that is ok
 	@echo
 
 fail: a.out
