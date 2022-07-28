@@ -1,5 +1,7 @@
 # Minimal working example
 
+For [this issue on Stackoverflow](https://stackoverflow.com/questions/70030529/manually-loading-libcrypto-dlmopen-dlsym-segfaults-dynamically-linked-works)
+
 To reproduce, run `make -B`, and you sould see this: 
 
 ```bash
